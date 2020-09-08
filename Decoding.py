@@ -1,25 +1,25 @@
 import base64
 import codecs
 
-# works with ASCII bytes to make them a letters
-def ascii(ords):
-    decodede = "".join((chr(o) for o in ords))
-    return decodede
+# Decode the 'encoded' ASCII string
+def ascii_decode(encoded):
+    decoded = "".join((chr(o) for o in encoded))
+    return decoded
 
-# makes hex string into utf-8 strings
-def hex_decode(ords):
-    return bytes.fromhex(ords).decode('utf-8')
+# Decode the 'encoded' hex string
+def hex_decode(encoded):
+    return bytes.fromhex(encoded).decode('utf-8')
 
-# get hex strings startes in 0x and make them utf-8 stringd
-def bigint_decode(ords):
-     return bytes.fromhex(ords[2:]).decode('utf-8')
+# Decode the 'encoded' hex string started with '0x'
+def hex_0x_decode(encoded):
+     return bytes.fromhex(encoded[2:]).decode('utf-8')
 
-# decode base64 Strings
-def base_64_decode(ords):
-    message = base64.b64decode(ords) 
-    return message.decode('ascii')
+# Decode the 'encoded' base64 string
+def base64_decode(encoded):
+    decoded = base64.b64decode(encoded) 
+    return decoded.decode('ascii')
 
 
-# decode Rot_13 Strings
-def rot_13_decode(ords):
-    return codecs.decode(ords,"rot_13")
+# Decode the 'encoded' Rot_13 string
+def rot_13_decode(encoded):
+    return codecs.decode(encoded,"rot_13")
